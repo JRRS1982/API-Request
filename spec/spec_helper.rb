@@ -17,6 +17,7 @@
 require 'favourite_language'
 
 require 'rspec'
+require 'pry'
 require 'rest-client'
 require 'json'
 
@@ -30,6 +31,7 @@ WebMock.disable_net_connect!(allow_localhost: true)
 
 RSpec.configure do |config|
   config.before(:each) do
+    stub_request(:any, 'https://api.github.com/users/TEST0/repos').to_return(body: File.new('spec/support/TEST0.json'), status: 200)
     stub_request(:any, 'https://api.github.com/users/TEST1/repos').to_return(body: File.new('spec/support/TEST1.json'), status: 200)
     stub_request(:any, 'https://api.github.com/users/TEST2/repos').to_return(body: File.new('spec/support/TEST2.json'), status: 200)
   end

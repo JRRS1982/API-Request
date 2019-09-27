@@ -9,8 +9,13 @@ RSpec.describe 'FEATURES' do
   let(:favourite_language) { FavouriteLanguage.new }
 
   describe '#print_out' do
-    it 'When there has been no request for data it prints something' do
+    it 'When no repository has been provided' do
       expect { favourite_language.print_out }.to output('There appears to be nothing to print').to_stdout
+    end
+
+    it "When a repository is provided" do
+      favourite_language.request(my_repo)
+      expect { favourite_language.print_out }.to output("The user's favourite language is probably Ruby").to_stdout
     end
   end
 
