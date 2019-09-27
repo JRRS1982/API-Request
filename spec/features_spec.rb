@@ -5,6 +5,7 @@ RSpec.describe 'FEATURES' do
     RestClient.get('https://api.github.com/users/JRRS1982/repos')
   end
 
+  let(:my_repo) { 'JRRS1982' }
   let(:favourite_language) { FavouriteLanguage.new }
 
   describe '#print_out' do
@@ -19,8 +20,8 @@ RSpec.describe 'FEATURES' do
     end
 
     it 'The API response from my repo is saved' do
-      favourite_language.request('JRRS1982')
-      expect(favourite_language.data[0]['owner']['login']).to eq('JRRS1982')
+      favourite_language.request(my_repo)
+      expect(favourite_language.data[0]['owner']['login']).to eq(my_repo)
     end
   end
 end
