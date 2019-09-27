@@ -30,8 +30,8 @@ WebMock.disable_net_connect!(allow_localhost: true)
 
 RSpec.configure do |config|
   config.before(:each) do
-    stub_request(:any, 'https://api.github.com/users/JRRS1982/repos').to_return(body: File.new('spec/support/JRRS1982.json'), status: 200)
-    stub_request(:any, 'https://api.github.com/users/sjmog/repos').to_return(body: File.new('spec/support/sjmog.json'), status: 200)
+    stub_request(:any, 'https://api.github.com/users/TEST1/repos').to_return(body: File.new('spec/support/TEST1.json'), status: 200)
+    stub_request(:any, 'https://api.github.com/users/TEST2/repos').to_return(body: File.new('spec/support/TEST2.json'), status: 200)
   end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

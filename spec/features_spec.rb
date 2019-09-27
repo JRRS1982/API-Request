@@ -2,10 +2,10 @@ require 'spec_helper'
 
 RSpec.describe 'FEATURES' do
   let(:request_my_repo) do
-    RestClient.get('https://api.github.com/users/JRRS1982/repos')
+    RestClient.get('https://api.github.com/users/TEST1/repos')
   end
 
-  let(:my_repo) { 'JRRS1982' }
+  let(:my_repo) { 'TEST1' }
   let(:favourite_language) { FavouriteLanguage.new }
 
   describe '#print_out' do

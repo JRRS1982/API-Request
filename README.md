@@ -49,6 +49,7 @@ Install the gems from the gemfile
 $ bundle install
 ```
 
+To prevent unnecessary requests to the Github API, I have stubbed the two files that i am using for tests... JRRS1982 and sjmog (profile names). I can remove the stubs at a later date, or start using test names.
 XXXXXXXXXXXX
 
 ### <a name="screenshots">Screenshots / UML / Notes / Diagrams</a>

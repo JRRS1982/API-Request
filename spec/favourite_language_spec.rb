@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe 'FEATURES' do
-  let(:different_repo) { 'sjmog' }
+  let(:different_repo) { 'TEST2' }
   let(:favourite_language) { FavouriteLanguage.new }
 
   describe '#request' do
