@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 require_relative 'github_api_requester'
 require_relative 'most_common_in_array'
 require_relative 'create_array_from_hash'
 
+# this is the main app in which we are including two modules and a class.
 class FavouriteLanguage
   include MostCommonInArray
   include CreateArrayFromHash
