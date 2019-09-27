@@ -1,3 +1,5 @@
+require_relative 'github_api_requester'
+
 class FavouriteLanguage
   attr_reader :data, :language_list, :result
 
@@ -7,9 +9,8 @@ class FavouriteLanguage
     @result = []
   end
 
-  def request(user_profile)
-    response = RestClient.get("https://api.github.com/users/#{user_profile}/repos")
-    @data = JSON.parse(response)
+  def request(input, data_requester = GitHubApiDataRequester.new)
+    @data = data_requester.request(input)
   end
 
   def print_out
@@ -23,6 +24,7 @@ class FavouriteLanguage
   def create_language_list(data)
     @language_list = []
     return unless !data.nil?
+
     data.select do |each_hash|
       @language_list << each_hash['language']
     end
