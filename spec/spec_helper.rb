@@ -21,6 +21,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'rest-client'
 require 'json'
+require 'webmock'
 SimpleCov.formatter = SimpleCov::Formatter::Console
 SimpleCov.start
 
