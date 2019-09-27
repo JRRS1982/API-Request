@@ -8,3 +8,5 @@ gem 'rspec'
 gem 'simplecov', require: false
 gem 'simplecov-console', require: false
 gem 'pry'
+gem 'rest-client'
+gem 'json'

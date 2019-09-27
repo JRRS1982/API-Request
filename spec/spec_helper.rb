@@ -13,9 +13,14 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+require 'favourite_language'
+
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'rest-client'
+require 'json'
 SimpleCov.formatter = SimpleCov::Formatter::Console
 SimpleCov.start
 
