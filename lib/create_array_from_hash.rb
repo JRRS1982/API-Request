@@ -1,5 +1,5 @@
-module SelectFromHash
-  def create_array(hash, key)
+module CreateArrayFromHash
+  def create_array_from_hash(hash:, key:)
     result = []
     return unless !hash.nil?
 
