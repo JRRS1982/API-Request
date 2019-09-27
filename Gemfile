@@ -10,4 +10,5 @@ gem 'simplecov-console', require: false
 gem 'pry'
 gem 'rest-client'
 gem 'json'
+gem 'rubocop'
 gem 'webmock'
