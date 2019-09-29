@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
-require 'pry'
+require 'favourite'
 
 RSpec.describe 'favourite' do
   let(:dummy_repo) { 'TEST0' }

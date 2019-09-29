@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'favourite'
-
 require 'rspec'
 require 'pry'
 require 'rest-client'

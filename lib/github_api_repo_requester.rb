@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require 'rest-client'
 
 # keeping it single responsability and clear.
 class GitHubApiRepoRequester
-  def request(profile)
+  def collect(profile)
     response = RestClient.get("https://api.github.com/users/#{profile}/repos")
     response
   end

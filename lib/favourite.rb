@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'github_api_requester'
+require_relative 'github_api_repo_requester'
 require_relative 'most_common_in_array'
 require_relative 'create_array_from_hash'
+require 'json'
 
 # this is the main class object that we are going to be working with.
 class Favourite
@@ -22,7 +23,7 @@ class Favourite
   # that it may be important to keep it open for extension, therefore any object
   # that returns a JSON can be used and we can pass that object a parameter.
   def request(data_requester_parameter:, data_requester: data_requester = GitHubApiRepoRequester.new)
-    response = data_requester.request(data_requester_parameter)
+    response = data_requester.collect(data_requester_parameter)
     @data = JSON.parse(response)
   end
 

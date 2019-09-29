@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
+require 'favourite'
 
 RSpec.describe 'FEATURES' do
   let(:request_my_repo) do
@@ -13,7 +16,7 @@ RSpec.describe 'FEATURES' do
       expect { favourite.print_out('language') }.to output('There appears to be nothing to print').to_stdout
     end
 
-    it "When a repository is provided" do
+    it 'When a repository is provided' do
       favourite.request(data_requester_parameter: my_repo)
       expect { favourite.print_out('language') }.to output("The user's favourite language is probably Ruby").to_stdout
     end
