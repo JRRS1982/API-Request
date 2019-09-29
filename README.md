@@ -10,16 +10,14 @@ The client wants to make a request to Github's API, with a specified users usern
 
 #### Problem: Input / Outputs
 
-Inputs: As it is a quicker route to MVP I have decided to make this a simple command line application, so it will take a string from the user (a users GitHub profile name) on the command line, which will be used to query the Github API. We expect Github's API will return a JSON file which we will then need to process.
+Inputs: As it is a quicker route to MVP I have decided to make this a simple command line application, so it will take a string from the user (a users GitHub profile name) on the command line. We expect Github's API to be queried and return a JSON file which we will then need to process.
 
 Outputs: Being a command line application it will print a string /statement to the terminal with a prediction of the users favorite language. The prediction will probably be attained by calculating the most commonly used language across the users public portfolios.
 
 ### <a name="user_story">User Stories</a>
 
 Simple macro level user story
->As a developer with friends,<br>
->I want to predict what my friends favorite coding language is by scraping Github,<br>
->So that I can buy my friend a relevant coding present.<br>
+>As a developer with friends, I want to predict what my friends favorite coding language is by sending a query to Github, so that I can buy my friend a relevant coding present.
 
 #### Acceptance Criteria
 
@@ -31,12 +29,16 @@ Please find Acceptance Criteria [here](acceptance_criteria.md).
 * RSpec - for testing
 * Simplecov - for test coverage
 * Rubocop version 0.65.0 - for style linting
+* Webmock gem - mocking requests
+* Rest-client gem - making http requests
+* Json gem - so we can parse the JSON file from the API
+* Pry gem - debugging helper
 
 #### API's Used
 
 Documentation for the Github API which we interacted with can be found [here](https://developer.github.com/v3/)
 
-Of note is that the API is ok with requests to it, but it limits requests to 30 a minute for searches. So if I have lots of requests though tests getting data from the API I may block my connection.
+Of note is that the API limits requests to 30 searches a minute. So if I have lots of requests though tests, getting data from the API I may block my connection.
 
 ### <a name="installation">Installation: how it works</a>
 
@@ -48,17 +50,31 @@ Install the gems from the gemfile
 ```
 $ bundle install
 ```
+Name and create your instance
+```
+$ favourite_language = FavouriteLanguage.new
+```
+Request data from Github (can inject a separate data requester with as the second param)
+```
+$ favourite_language.request('JRRS1982')
+```
 
-To prevent unnecessary requests to the Github API, I have stubbed the two files that i am using for tests... JRRS1982 and sjmog (profile names). I can remove the stubs at a later date, or start using test names.
-XXXXXXXXXXXX
+Print the results
+```
+$ favourite_language.print_out
+```
+
+Subsequent requests / printing will overwrite locally stored variables.
+
+To prevent unnecessary requests to the Github API, I have used json files to stub the tests. A real repo can be used in production.
 
 ### <a name="screenshots">Screenshots / UML / Notes / Diagrams</a>
 
-I have drawn some notes on paper to plan classes, but there may not be many classes at first thought, should there be any images / notes, please find them in the images folder of the project. I will include an API request sequence diagram in the images file.
+I have drawn some notes on paper to plan classes, but there may not be many classes at first thought, should there be any images / notes, please find them in the images folder of the project. 
 
 ### <a name="reflection">Reflection and further development</a>
 
-XXXXXXXXX
+I managed to complete the task fairly comfortably, but there is still further refactoring that can be completed.
 
 ### Credits / team members
 

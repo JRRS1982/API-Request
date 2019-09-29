@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 RSpec.describe 'favourite_language' do
   let(:dummy_repo) { 'TEST0' }
@@ -15,8 +16,8 @@ RSpec.describe 'favourite_language' do
   describe '#print_out' do
     it 'creates a list of the languages' do
       favourite_language.request(dummy_repo)
-      favourite_language.print_out
-      expect(favourite_language.language_list).to eq(['Ruby'])
+      favourite_language.print_out('language')
+      expect(favourite_language.list).to eq(['Ruby'])
     end
   end
 end
