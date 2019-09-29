@@ -6,16 +6,16 @@ RSpec.describe 'FEATURES' do
   end
 
   let(:my_repo) { 'TEST1' }
-  let(:favourite_language) { FavouriteLanguage.new }
+  let(:favourite) { Favourite.new }
 
   describe '#print_out' do
     it 'When no repository has been provided' do
-      expect { favourite_language.print_out('language') }.to output('There appears to be nothing to print').to_stdout
+      expect { favourite.print_out('language') }.to output('There appears to be nothing to print').to_stdout
     end
 
     it "When a repository is provided" do
-      favourite_language.request(my_repo)
-      expect { favourite_language.print_out('language') }.to output("The user's favourite language is probably Ruby").to_stdout
+      favourite.request(data_requester_parameter: my_repo)
+      expect { favourite.print_out('language') }.to output("The user's favourite language is probably Ruby").to_stdout
     end
   end
 
@@ -25,8 +25,8 @@ RSpec.describe 'FEATURES' do
     end
 
     it 'The API response from my repo is saved' do
-      favourite_language.request(my_repo)
-      expect(favourite_language.data[0]['owner']['login']).to eq(my_repo)
+      favourite.request(data_requester_parameter: my_repo)
+      expect(favourite.data[0]['owner']['login']).to eq(my_repo)
     end
   end
 end

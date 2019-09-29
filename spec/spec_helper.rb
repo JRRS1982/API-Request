@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'favourite_language'
+require 'favourite'
 
 require 'rspec'
 require 'pry'

@@ -4,12 +4,12 @@ require_relative 'github_api_requester'
 require_relative 'most_common_in_array'
 require_relative 'create_array_from_hash'
 
-# this is the main app in which we are including two modules and a class.
-class FavouriteLanguage
+# this is the main class object that we are going to be working with.
+class Favourite
   include MostCommonInArray
   include CreateArrayFromHash
 
-  attr_reader :data, :list, :result, :input
+  attr_reader :data, :list, :input, :result
 
   def initialize
     @data = []
@@ -18,16 +18,17 @@ class FavouriteLanguage
     @result = []
   end
 
-  # my mind is drawn to reusability, this class is specifically focused on
-  # language, but it doesnt matter where the data is coming from so the data
-  # requester can be replaced with other things, i.e. input can be 
-  def request(profile, data_requester = GitHubApiDataRequester.new)
-    @data = data_requester.request(profile)
+  # rather than limit the use of the code to just favourite language I thought
+  # that it may be important to keep it open for extension, therefore any object
+  # that returns a JSON can be used and we can pass that object a parameter.
+  def request(data_requester_parameter:, data_requester: data_requester = GitHubApiRepoRequester.new)
+    response = data_requester.request(data_requester_parameter)
+    @data = JSON.parse(response)
   end
 
-  # if i put in a parameter here i can change the request so that language is 
-  # replacable by other things.... i.e. add 
-  # @input here..... trying to set the search params and call it here... so when its set by the request it is the element we search for. i.e. its not hard codede 'language' the array that is created is dynamic.
+  # we dont necessarily need to search for language in the Array, so if I use a
+  # parameter in the print out method i can search for other keys... and find an
+  # alternate favourite thing, maybe wiki instead of language or another option?
   def print_out(language_or_other_requirement)
     @list = create_array_from_hash(hash: @data, key: language_or_other_requirement)
     @result = most_common_in_array(array: @list)

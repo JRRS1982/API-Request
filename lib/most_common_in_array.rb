@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-# does what it says on the tin... returns the most common object in an array.
+# keeping it single responsability and with a named parameter so its clear what
+# needs to be passed into the module.
 module MostCommonInArray
   def most_common_in_array(array:)
     result = array.uniq.max_by do |i|

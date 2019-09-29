@@ -52,16 +52,15 @@ $ bundle install
 ```
 Name and create your instance
 ```
-$ favourite_language = FavouriteLanguage.new
+$ favourite = Favourite.new
 ```
-Request data from Github (can inject a separate data requester with as the second param)
+Request data 
 ```
-$ favourite_language.request('JRRS1982')
+$ favourite.request('JRRS1982')
 ```
-
 Print the results
 ```
-$ favourite_language.print_out
+$ favourite.print_out('language')
 ```
 
 Subsequent requests / printing will overwrite locally stored variables.

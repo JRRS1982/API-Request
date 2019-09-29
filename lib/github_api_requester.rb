@@ -2,13 +2,10 @@
 
 require 'spec_helper'
 
-# requests repos from github with the designated profile name and returns parsed
-# feel like i need to have an API requested super class, and github request 
-# being a child of that class, and maybe have the 
-class GitHubApiDataRequester
+# keeping it single responsability and clear.
+class GitHubApiRepoRequester
   def request(profile)
     response = RestClient.get("https://api.github.com/users/#{profile}/repos")
-    data = JSON.parse(response)
-    data
+    response
   end
 end
